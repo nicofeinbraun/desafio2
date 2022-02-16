@@ -1,0 +1,153 @@
+.ropa {
+  display: -ms-grid;
+  display: grid;
+  gap: 1rem;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (auto)[3];
+      grid-template-rows: repeat(3, auto);
+      grid-template-areas: "logo logo logo logo " "vestir vestir vestir vestir" "footer footer footer footer";
+  color: black;
+  font-size: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  word-spacing: 8px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.ropa h2 {
+  font-size: 2.4rem;
+}
+
+.ropa h3 {
+  font-size: 1.6rem;
+}
+
+.ropa .logo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: logo;
+}
+
+.ropa .logo nav ul li a:hover li {
+  color: #444;
+}
+
+.ropa .logo nav ul li a:hover ul {
+  display: block;
+}
+
+.ropa .vestir {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: vestir;
+  background-color: whitesmoke;
+}
+
+.ropa .vestir .hom, .ropa .vestir .muje {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+}
+
+.ropa .vestir .hom .imagen, .ropa .vestir .muje .imagen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.ropa .vestir .hom .imagen:hover, .ropa .vestir .muje .imagen:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.ropa .vestir .hom .imagen img, .ropa .vestir .muje .imagen img {
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: #d9d9d9;
+}
+
+.ropa .wtt {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.ropa .footer {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: footer;
+}
+
+@media screen and (max-width: 768px) {
+  * {
+    font-size: 1rem;
+  }
+  .container {
+    gap: 0.6 0.3rem;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -ms-grid-rows: (auto)[5];
+        grid-template-rows: repeat(5, auto);
+        grid-template-areas: "logo logo logo" "portada portada portada" "nosotros nosotros contenido" "footer footer footer";
+  }
+  .header {
+    gap: 0.7rem;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -ms-grid-rows: (auto)[4];
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: "logo logo logo" "po menu menu" "productos productos productos" "footer footer footer";
+  }
+  .contacto {
+    gap: 0.7rem;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -ms-grid-rows: (auto)[5];
+        grid-template-rows: repeat(5, auto);
+        grid-template-areas: "logo logo logo" "dire dire dire" "mapa mapa mapa" "formulario formulario formulario" "footer footer footer";
+  }
+  #comenta {
+    height: 100px;
+  }
+  #mapa1 {
+    width: 80%;
+    height: 100%;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+  background-image: linear-gradient(315deg, #ffffff 0%, #f47b7b 74%);
+}

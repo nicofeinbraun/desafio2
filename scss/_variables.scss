@@ -1,0 +1,20 @@
+$bgcolor:whitesmoke;
+$font-sizes: (
+    s: 1.6rem,
+    n: 2.4rem,
+    l: 1.35rem
+    );
+$s:map-get($font-sizes, s);
+$n:map-get($font-sizes, n);
+$l:map-get($font-sizes, l);
+
+@mixin estilo(){
+    color: black;
+    font-size: 1rem ;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    word-spacing: 8px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}

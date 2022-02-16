@@ -1,0 +1,46 @@
+@import "variables";
+
+@media screen and (max-width:768px){
+    *{
+        font-size: 1rem
+    }
+    
+    .container{       
+        gap: 0.6.3rem;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(5,auto);
+        grid-template-areas: 
+        "logo logo logo"
+        "portada portada portada"
+        "nosotros nosotros contenido"
+        "footer footer footer";
+    }
+    .header{
+        gap: 0.7rem;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(4,auto);
+        grid-template-areas: 
+        "logo logo logo"
+        "po menu menu"
+        "productos productos productos"
+        "footer footer footer";
+        }
+    .contacto{
+        gap: 0.7rem;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(5,auto);
+        grid-template-areas: 
+        "logo logo logo"
+        "dire dire dire"
+        "mapa mapa mapa"
+        "formulario formulario formulario"
+        "footer footer footer";
+    }
+    #comenta{
+        height: 100px;
+    }
+    #mapa1{
+        width: 80%;
+        height: 100%;
+    }
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubrí nuestras ofertas en zapatillas e indumentaria para hombre, mujer, niños y más.">
+    <meta name="keywords" content="moda, indumentaria, indumentaria femenina, indumentaria masculina, vestidos, zapatos de mujer,zapatos de hombre, accesorios, jeans, remeras">
+    <link rel="shortcut icon" href="./fotos/favicon.jpeg">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <title>Ropa</title>
+</head>
+<body>
+    <main class="container">
+        <div class="ropa">
+            <!--Header con nav bar hecha en bootstrap-->
+            <div class="logo">
+                <nav class="navbar navbar-expand-lg navbar-light ">
+                    <div class="container-fluid">
+                    <a class="navbar-brand" href="./index.html"><img src="./fotos/logo.jpeg" width="85px" alt="Logo" id="top"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Productos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a href="./productos.html#hombre">Hombre</a></li>
+                                <li><a href="./productos.html#mujer">Mujer</a></li> 
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./productos.html#plata">Accesorios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./ropa.html">Ropa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contacto.html">Contactos</a>
+                        </li>
+                        </ul>
+                        <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                    </div>
+                </nav>
+            </div>
+            
+            <!--Icono de whatsapp que se desplaza cuando yo me desplaso por la pagina-->
+            <div class="wtt"><a href=""><img src="./fotos/wtts.png" width="50px" alt="whatsapp"></a></div>
+            
+            <!--seccion de articulos-->
+            <section class="vestir">
+                <br>
+                <h2>Ropa Hombre</h2>
+                <br>
+                <section class="hom">
+                    <div>
+                        <img src="./fotos/conjuntodeportivo.jpg" width="200px" alt="Conjunto_Deportivo" class="imagen"><br>
+                        <h3 id="1">Conjunto Deportivo</h3>
+                        <h3 id="precio1">$7199</h3>
+                        <input type="number"name="cantidad" style="width: 4em">
+                        <br>
+                        <button onclick="agregar">Agregar a carrito</button>
+                    </div>
+                    <div>
+                        <img src="./fotos/Saco.jpg" width="200px"alt="Saco" class="imagen"><br>
+                        <h3 id="2">Saco Entallado</h3>
+                        <h3 id="precio2">$6000</h3>
+                        <input type="number"name="cantidad" style="width: 4em">
+                        <br>
+                        <button onclick="agregar">Agregar a carrito</button>
+                    </div>
+                    <div>
+                        <img src="./fotos/Remera.jpg" width="200px" alt="Remera" class="imagen"><br>
+                        <h3 id="3">Remera Lisa</h3>
+                        <h3 id="precio3">$800</h3>
+                        <input type="number"name="cantidad" style="width: 4em">
+                        <br>
+                        <button onclick="agregar">Agregar a carrito</button>
+                    </div>
+                </section>
+                <br>
+                <h2>Ropa Mujer</h2>
+                <br>
+                <section class="muje">
+                    <div>
+                        <img src="./fotos/jean.jpg" width="200px" alt="jean" class="imagen"><br>
+                        <h3 id="5">Jean</h3>
+                        <h3 id="precio5">$2000</h3>
+                        <input type="number"name="cantidad" style="width: 4em">
+                        <br>
+                        <button onclick="agregar">Agregar a carrito</button>
+                    </div>
+                    <div>
+                        <img src="./fotos/remeradeportiva.jpg" width="200px"alt="Remera_deportiva" class="imagen"><br>
+                        <h3 id="6">Remera Deportiva</h3>
+                        <h3 id="precio6">$1050</h3>
+                        <input type="number"name="cantidad" style="width: 4em">
+                        <br>
+                        <button onclick="agregar">Agregar a carrito</button>
+                    </div>
+                </section>
+                <br>
+            </section>
+
+            <!--footer de la pagina con las redes sociales-->
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top footer">
+                    <div class="col-md-4 d-flex align-items-center">
+                    <a href="./index.html" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                        <img src="./fotos/logo.jpeg" width="100px" alt="Logo">
+                    </a>
+                    <span class="text-muted">© 2021 Company, Inc</span>
+                    </div>
+                
+                    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="ms-3"><a class="text-muted" href="#"><img src="./fotos/facebook.png" width="30px" alt="facebook"></a></li>
+                    <li class="ms-3"><a class="text-muted" href="#"><img src="./fotos/instagram.png" width="30px" alt="instagram"></use></a></li>
+                    
+                    </ul>
+                
+            </footer>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
