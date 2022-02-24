@@ -17,6 +17,7 @@ const producto4 = new Producto(4,"jean",2000,26);
 const producto5 = new Producto(5,"remera deportiva mujer",1050,45);
 
 const listaProductos = [producto1,producto2,producto3,producto4,producto5];
+const listaCompra;
 
 function productos(){  
     alert("Los productos en stock son: \n"+listaProductos[0].codigo+" - "+listaProductos[0].nombre +" $"+listaProductos[0].precio+"\n"+listaProductos[1].codigo+" - "+listaProductos[1].nombre+" $"+listaProductos[1].precio+"\n"+listaProductos[2].codigo+" - "+listaProductos[2].nombre+" $"+listaProductos[2].precio+"\n"+listaProductos[3].codigo+" - "+listaProductos[3].nombre+" $"+listaProductos[3].precio+"\n"+listaProductos[4].codigo+" - "+listaProductos[4].nombre+" $"+listaProductos[4].precio);
@@ -51,24 +52,35 @@ function compra(precio,nombre,stock){
     }
     return stock           
 }
+
+function agregarLista(id,nombre,precio,comprado){
+    const agregado = new Producto(id,nombre,precio,comprado);
+    listaCompra.push(agregado);    
+}
+
 function comprarProductos(){
     do {
         nombre = prompt("Ingrese nombre del producto:").toLowerCase();
             switch(nombre){
                 case listaProductos[0].nombre:
                     listaProductos[0].stock = compra (listaProductos[0].precio,nombre,listaProductos[0].stock);
+                    agregarLista(listaProductos[0].codigo,nombre,listaProductos[0].precio,listaProductos[0].stock);
                     break;
                 case listaProductos[1].nombre:
                     listaProductos[1].stock = compra (listaProductos[1].precio,nombre,listaProductos[1].stock);
+                    agregarLista(listaProductos[1].codigo,nombre,listaProductos[1].precio,listaProductos[1].stock);
                     break;
                 case listaProductos[2].nombre:
                     listaProductos[2].stock = compra (listaProductos[2].precio,nombre,listaProductos[2].stock);
+                    agregarLista(listaProductos[2].codigo,nombre,listaProductos[2].precio,listaProductos[2].stock);
                     break;
                 case listaProductos[3].nombre:
                     listaProductos[3].stock = compra (listaProductos[3].precio,nombre,listaProductos[3].stock);
+                    agregarLista(listaProductos[3].codigo,nombre,listaProductos[3].precio,listaProductos[3].stock);
                     break;
                 case listaProductos[4].nombre:
                     listaProductos[4].stock = compra (listaProductos[4].precio,nombre,listaProductos[4].stock);
+                    agregarLista(listaProductos[4].codigo,nombre,listaProductos[4].precio,listaProductos[4].stock);
                     break;
                 case "":
                     break;
@@ -79,6 +91,10 @@ function comprarProductos(){
     } while (nombre != "");
     menu()    
 }
+
+function mostrarCompra(){
+    alert(listaCompra);   
+} 
 
 function stockProductos(){
     alert("Stock actualizado de los productos: \n"+listaProductos[0].nombre + " -> "+listaProductos[0].stock+"\n"+listaProductos[1].nombre + " -> "+listaProductos[1].stock+"\n"+listaProductos[2].nombre + " -> "+listaProductos[2].stock+"\n"+listaProductos[3].nombre + " -> "+listaProductos[3].stock+"\n"+listaProductos[4].nombre + " -> "+listaProductos[4].stock);
@@ -106,6 +122,8 @@ function menu(){
         case "3":
             total();
             break;
+        case "4":
+            mostrarCompra();
         default:
             alert("Seleccione una opcion valida");
             menu()
