@@ -89,15 +89,17 @@ function mostrarCompra(){
 
 function borrarProducto(){
     nombre = prompt("Ingrese nombre del que desea borrar de su compra:").toLowerCase();
-    let esta;
+    let esta = false;
     for (i=0 ; i< listaCompra.length ; i++){
         if ( listaCompra[i].nombre == nombre){
             esta = true;
-            listaCompra.splice(i,1);         
+            listaCompra.splice(i,1);
+            console.log(esta)
         }
     } 
     if(esta = false){
-    alert("El articulo no esta en su lista de compra para borrar")}
+        alert("El articulo no esta en su lista de compra para borrar")
+    }
     console.log(listaCompra);
     menu();
 }
