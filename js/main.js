@@ -96,8 +96,9 @@ function borrarProducto(){
             listaCompra.splice(i,1);
             console.log(esta)
         }
-    } 
-    if(esta = false){
+    }
+    console.log(esta)
+    if(esta == false){
         alert("El articulo no esta en su lista de compra para borrar")
     }
     console.log(listaCompra);
