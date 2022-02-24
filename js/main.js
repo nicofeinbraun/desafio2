@@ -106,19 +106,19 @@ function borrarProducto(){
             restaPrecio(listaCompra[i].precio,listaCompra[i].stock);
             switch(nombre){
                 case listaProductos[0].nombre:
-                    listaCompra[i].stock = sumaStock(listaProductos[0].stock,listaCompra[i].stock);
+                    listaProductos[0].stock = sumaStock(listaProductos[0].stock,listaCompra[i].stock);
                     break;
                 case listaProductos[1].nombre:
-                    listaCompra[i].stock = sumaStock(listaProductos[1].stock,listaCompra[i].stock);
+                    listaProductos[1].stock = sumaStock(listaProductos[1].stock,listaCompra[i].stock);
                     break;
                 case listaProductos[2].nombre:
-                    listaCompra[i].stock = sumaStock(listaProductos[2].stock,listaCompra[i].stock);
+                    listaProductos[2].stock = sumaStock(listaProductos[2].stock,listaCompra[i].stock);
                     break;
                 case listaProductos[3].nombre:
-                    listaCompra[i].stock = sumaStock(listaProductos[3].stock,listaCompra[i].stock);
+                    listaProductos[3].stock = sumaStock(listaProductos[3].stock,listaCompra[i].stock);
                     break;
                 case listaProductos[4].nombre:
-                    listaCompra[i].stock = sumaStock(listaProductos[4].stock,listaCompra[i].stock);
+                    listaProductos[4].stock = sumaStock(listaProductos[4].stock,listaCompra[i].stock);
                     break;
             }
             listaCompra.splice(i,1);
