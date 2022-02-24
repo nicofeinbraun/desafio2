@@ -65,7 +65,7 @@ function comprarProductos(){
                     listaProductos[2].stock = compra (listaProductos[2].precio,nombre,listaProductos[2].stock);
                     break;
                 case listaProductos[3].nombre:
-                    listaProductos[3].stock = compra (listaProductos[3].precio,nombrelistaProductos[3]producto4.stock);
+                    listaProductos[3].stock = compra (listaProductos[3].precio,nombre,listaProductos[3].stock);
                     break;
                 case listaProductos[4].nombre:
                     listaProductos[4].stock = compra (listaProductos[4].precio,nombre,listaProductos[4].stock);
