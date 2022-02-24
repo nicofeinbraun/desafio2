@@ -16,8 +16,10 @@ const producto3 = new Producto(3,"remera hombre",800,100);
 const producto4 = new Producto(4,"jean",2000,26);
 const producto5 = new Producto(5,"remera deportiva mujer",1050,45);
 
+const listaProductos [producto1,producto2,producto3,producto4,producto5];
+
 function productos(){  
-    alert("Los productos en stock son: \n"+producto1.codigo+" - "+producto1.nombre +" $"+producto1.precio+"\n"+producto2.codigo+" - "+producto2.nombre+" $"+producto2.precio+"\n"+producto3.codigo+" - "+producto3.nombre+" $"+producto3.precio+"\n"+producto4.codigo+" - "+producto4.nombre+" $"+producto4.precio+"\n"+producto5.codigo+" - "+producto5.nombre+" $"+producto5.precio);
+    alert("Los productos en stock son: \n"+listaProductos[0].codigo+" - "+listaProductos[0].nombre +" $"+listaProductos[0].precio+"\n"+listaProductos[1].codigo+" - "+listaProductos[1].nombre+" $"+listaProductos[1].precio+"\n"+listaProductos[2].codigo+" - "+listaProductos[2].nombre+" $"+listaProductos[2].precio+"\n"+listaProductos[3].codigo+" - "+listaProductos[3].nombre+" $"+listaProductos[3].precio+"\n"+listaProductos[4].codigo+" - "+listaProductos[4].nombre+" $"+listaProductos[4].precio);
 }
 
 
@@ -53,20 +55,20 @@ function comprarProductos(){
     do {
         nombre = prompt("Ingrese nombre del producto:").toLowerCase();
             switch(nombre){
-                case producto1.nombre:
-                    producto1.stock = compra (producto1.precio,nombre,producto1.stock);
+                case listaProductos[0].nombre:
+                    listaProductos[0].stock = compra (listaProductos[0].precio,nombre,listaProductos[0].stock);
                     break;
-                case producto2.nombre:
-                    producto2.stock = compra (producto2.precio,nombre,producto2.stock);
+                case listaProductos[1].nombre:
+                    listaProductos[1].stock = compra (listaProductos[1].precio,nombre,listaProductos[1].stock);
                     break;
-                case producto3.nombre:
-                    producto3.stock = compra (producto3.precio,nombre,producto3.stock);
+                case listaProductos[2].nombre:
+                    listaProductos[2].stock = compra (listaProductos[2].precio,nombre,listaProductos[2].stock);
                     break;
-                case producto4.nombre:
-                    producto4.stock = compra (producto4.precio,nombre,producto4.stock);
+                case listaProductos[3].nombre:
+                    listaProductos[3].stock = compra (listaProductos[3].precio,nombrelistaProductos[3]producto4.stock);
                     break;
-                case producto5.nombre:
-                    producto5.stock = compra (producto5.precio,nombre,producto5.stock);
+                case listaProductos[4].nombre:
+                    listaProductos[4].stock = compra (listaProductos[4].precio,nombre,listaProductos[4].stock);
                     break;
                 case "":
                     break;
@@ -79,7 +81,7 @@ function comprarProductos(){
 }
 
 function stockProductos(){
-    alert("Stock actualizado de los productos: \n"+producto1.nombre + " -> "+producto1.stock+"\n"+producto2.nombre + " -> "+producto2.stock+"\n"+producto3.nombre + " -> "+producto3.stock+"\n"+producto4.nombre + " -> "+producto4.stock+"\n"+producto5.nombre + " -> "+producto5.stock);
+    alert("Stock actualizado de los productos: \n"+listaProductos[0].nombre + " -> "+listaProductos[0].stock+"\n"+listaProductos[1].nombre + " -> "+listaProductos[1].stock+"\n"+listaProductos[2].nombre + " -> "+listaProductos[2].stock+"\n"+listaProductos[3].nombre + " -> "+listaProductos[3].stock+"\n"+listaProductos[4].nombre + " -> "+listaProductos[4].stock);
     menu();
 }
 
