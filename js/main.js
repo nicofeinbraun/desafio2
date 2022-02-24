@@ -89,7 +89,7 @@ function mostrarCompra(){
 
 function borrarProducto(){
     nombre = prompt("Ingrese nombre del que desea borrar de su compra:").toLowerCase();
-    for (i=0 ; i< listaCompra.lenght ; i++){
+    for (i=0 ; i< listaCompra.length ; i++){
         console.log("entre al for")
         if ( listaCompra[i].nombre == nombre){
             console.log("entre al if" + i);
