@@ -113,6 +113,7 @@ function menu(){
             break;
         case "3":
             mostrarCompra();
+            break;
         case "4":
             total();
             break;
