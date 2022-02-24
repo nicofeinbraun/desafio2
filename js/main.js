@@ -29,8 +29,16 @@ function calcularPrecio(precio,comprado){
     precioTotal += comprado * precio;    
 }
 
+function restaPrecio(precio,comprado){
+    precioTotal -= comprado * precio;
+}
+
 function ajusteStock(stock,comprado){
     stock -= comprado;
+    return stock;
+}
+function sumaStock(stock,comprado){
+    stock += comprado;
     return stock;
 }
 
@@ -95,6 +103,24 @@ function borrarProducto(){
     for (i=0 ; i< listaCompra.length ; i++){
         if ( listaCompra[i].nombre == nombre){
             esta = true;
+            restaPrecio(listaCompra[i].precio,listaCompra[i].stock);
+            switch(nombre):{
+                case listaProductos[0].nombre:
+                    listaCompra[i].stock = sumaStock(listaProductos[0].stock,listaCompra[i].stock);
+                    break;
+                case listaProductos[1].nombre:
+                    listaCompra[i].stock = sumaStock(listaProductos[1].stock,listaCompra[i].stock);
+                    break;
+                case listaProductos[2].nombre:
+                    listaCompra[i].stock = sumaStock(listaProductos[2].stock,listaCompra[i].stock);
+                    break;
+                case listaProductos[3].nombre:
+                    listaCompra[i].stock = sumaStock(listaProductos[3].stock,listaCompra[i].stock);
+                    break;
+                case listaProductos[4].nombre:
+                    listaCompra[i].stock = sumaStock(listaProductos[4].stock,listaCompra[i].stock);
+                    break;
+            }
             listaCompra.splice(i,1);
         }
     }
