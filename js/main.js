@@ -93,9 +93,9 @@ function borrarProducto(){
         console.log("entre al for")
         if ( listaCompra[i].nombre == nombre){
             console.log("entre al if" + i);
-            listaCompra.slice(i,1);
+            listaCompra.splice(indice,1);         
         }
-    }
+    } 
     console.log(listaCompra);
     menu();
 }
