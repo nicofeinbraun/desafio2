@@ -23,8 +23,6 @@ function productos(){
     alert("Los productos en stock son: \n"+listaProductos[0].codigo+" - "+listaProductos[0].nombre +" $"+listaProductos[0].precio+"\n"+listaProductos[1].codigo+" - "+listaProductos[1].nombre+" $"+listaProductos[1].precio+"\n"+listaProductos[2].codigo+" - "+listaProductos[2].nombre+" $"+listaProductos[2].precio+"\n"+listaProductos[3].codigo+" - "+listaProductos[3].nombre+" $"+listaProductos[3].precio+"\n"+listaProductos[4].codigo+" - "+listaProductos[4].nombre+" $"+listaProductos[4].precio);
 }
 
-
-
 function calcularPrecio(precio,comprado){
     precioTotal += comprado * precio;    
 }
@@ -92,6 +90,7 @@ function mostrarCompra(){
 function borrarProducto(){
         nombre = prompt("Ingrese nombre del que desea borrar de su compra:").toLowerCase();
         let indice = listaCompra.indexOf(nombre);
+    console.log(indice);
         listaCompra.slice(indice,1);
     menu();
 }
