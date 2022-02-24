@@ -94,7 +94,7 @@ function borrarProducto(){
             listaCompra.slice(i,1);
         }
     }
-    console.log(indice);
+    console.log(listaCompra);
     menu();
 }
 
