@@ -81,12 +81,20 @@ function comprarProductos(){
                     break;
             } 
     } while (nombre != "");
-    menu()    
+    menu();    
 }
 
 function mostrarCompra(){
-    console.log(listaCompra);   
-} 
+    console.log(listaCompra);
+    menu();
+}
+
+function borrarProducto(){
+        nombre = prompt("Ingrese nombre del que desea borrar de su compra:").toLowerCase();
+        let indice = listaCompra.indexOf(nombre);
+        listaCompra.slice(indice,1);
+    menu();
+}
 
 function stockProductos(){
     alert("Stock actualizado de los productos: \n"+listaProductos[0].nombre + " -> "+listaProductos[0].stock+"\n"+listaProductos[1].nombre + " -> "+listaProductos[1].stock+"\n"+listaProductos[2].nombre + " -> "+listaProductos[2].stock+"\n"+listaProductos[3].nombre + " -> "+listaProductos[3].stock+"\n"+listaProductos[4].nombre + " -> "+listaProductos[4].stock);
@@ -115,6 +123,9 @@ function menu(){
             mostrarCompra();
             break;
         case "4":
+            borrarProducto();
+            break;
+        case "5":
             total();
             break;
         default:
