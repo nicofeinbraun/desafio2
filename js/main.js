@@ -104,7 +104,7 @@ function borrarProducto(){
         if ( listaCompra[i].nombre == nombre){
             esta = true;
             restaPrecio(listaCompra[i].precio,listaCompra[i].stock);
-            switch(nombre):{
+            switch(nombre){
                 case listaProductos[0].nombre:
                     listaCompra[i].stock = sumaStock(listaProductos[0].stock,listaCompra[i].stock);
                     break;
