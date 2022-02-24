@@ -34,7 +34,7 @@ function ajusteStock(stock,comprado){
     return stock;
 }
 
-function compra(precio,nombre,stock){
+function compra(id,precio,nombre,stock){
     comprado = parseInt(prompt("Cuantos desea comprar:"));
     if (comprado <= stock){
         calcularPrecio (precio,comprado);
@@ -50,12 +50,9 @@ function compra(precio,nombre,stock){
             stock = ajusteStock(stock,stock);
         }
     }
+    const agregado = new Producto(id,nombre,(precio*comprado),comprado);
+    listaCompra.push(agregado);
     return stock           
-}
-
-function agregarLista(id,nombre,precio,comprado){
-    const agregado = new Producto(id,nombre,precio,comprado);
-    listaCompra.push(agregado);    
 }
 
 function comprarProductos(){
@@ -63,24 +60,19 @@ function comprarProductos(){
         nombre = prompt("Ingrese nombre del producto:").toLowerCase();
             switch(nombre){
                 case listaProductos[0].nombre:
-                    listaProductos[0].stock = compra (listaProductos[0].precio,nombre,listaProductos[0].stock);
-                    agregarLista(listaProductos[0].codigo,nombre,listaProductos[0].precio,listaProductos[0].stock);
+                    listaProductos[0].stock = compra (listaProductos[0].codigo,listaProductos[0].precio,nombre,listaProductos[0].stock);
                     break;
                 case listaProductos[1].nombre:
-                    listaProductos[1].stock = compra (listaProductos[1].precio,nombre,listaProductos[1].stock);
-                    agregarLista(listaProductos[1].codigo,nombre,listaProductos[1].precio,listaProductos[1].stock);
+                    listaProductos[1].stock = compra (listaProductos[1].codigo,listaProductos[1].precio,nombre,listaProductos[1].stock);
                     break;
                 case listaProductos[2].nombre:
-                    listaProductos[2].stock = compra (listaProductos[2].precio,nombre,listaProductos[2].stock);
-                    agregarLista(listaProductos[2].codigo,nombre,listaProductos[2].precio,listaProductos[2].stock);
+                    listaProductos[2].stock = compra (listaProductos[2].codigo,listaProductos[2].precio,nombre,listaProductos[2].stock);
                     break;
                 case listaProductos[3].nombre:
-                    listaProductos[3].stock = compra (listaProductos[3].precio,nombre,listaProductos[3].stock);
-                    agregarLista(listaProductos[3].codigo,nombre,listaProductos[3].precio,listaProductos[3].stock);
+                    listaProductos[3].stock = compra (listaProductos[3].codigo,listaProductos[3].precio,nombre,listaProductos[3].stock);
                     break;
                 case listaProductos[4].nombre:
-                    listaProductos[4].stock = compra (listaProductos[4].precio,nombre,listaProductos[4].stock);
-                    agregarLista(listaProductos[4].codigo,nombre,listaProductos[4].precio,listaProductos[4].stock);
+                    listaProductos[4].stock = compra (listaProductos[4].codigo,listaProductos[4].precio,nombre,listaProductos[4].stock);
                     break;
                 case "":
                     break;
@@ -93,7 +85,7 @@ function comprarProductos(){
 }
 
 function mostrarCompra(){
-    alert(listaCompra);   
+    console.log(listaCompra);   
 } 
 
 function stockProductos(){
@@ -109,7 +101,7 @@ function total(){
     alert("El total de su compra es de $"+precioTotal);
 }
 function menu(){
-    let opcion = prompt("Menu: \n1 - Articulos\n2 - Stock productos \n3 - Completar compra");
+    let opcion = prompt("Menu: \n1 - Articulos\n2 - Stock productos \n3 - Ver articulos comprados \n4 - Completar compra");
 
     switch(opcion){
         case "1":
@@ -120,10 +112,10 @@ function menu(){
             stockProductos();
             break;
         case "3":
+            mostrarCompra();
+        case "4":
             total();
             break;
-        case "4":
-            mostrarCompra();
         default:
             alert("Seleccione una opcion valida");
             menu()
