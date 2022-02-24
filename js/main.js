@@ -89,9 +89,12 @@ function mostrarCompra(){
 
 function borrarProducto(){
         nombre = prompt("Ingrese nombre del que desea borrar de su compra:").toLowerCase();
-        let indice = listaCompra.nombre.indexOf(nombre);
+    for (i=0 , i< listaCompra.lenght, i++){
+        if ( listaCompra[i].nombre == nombre){
+            listaCompra.slice(i,1);
+        }
+    }
     console.log(indice);
-        listaCompra.slice(indice,1);
     menu();
 }
 
