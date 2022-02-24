@@ -16,7 +16,7 @@ const producto3 = new Producto(3,"remera hombre",800,100);
 const producto4 = new Producto(4,"jean",2000,26);
 const producto5 = new Producto(5,"remera deportiva mujer",1050,45);
 
-const listaProductos [producto1,producto2,producto3,producto4,producto5];
+const listaProductos = [producto1,producto2,producto3,producto4,producto5];
 
 function productos(){  
     alert("Los productos en stock son: \n"+listaProductos[0].codigo+" - "+listaProductos[0].nombre +" $"+listaProductos[0].precio+"\n"+listaProductos[1].codigo+" - "+listaProductos[1].nombre+" $"+listaProductos[1].precio+"\n"+listaProductos[2].codigo+" - "+listaProductos[2].nombre+" $"+listaProductos[2].precio+"\n"+listaProductos[3].codigo+" - "+listaProductos[3].nombre+" $"+listaProductos[3].precio+"\n"+listaProductos[4].codigo+" - "+listaProductos[4].nombre+" $"+listaProductos[4].precio);
