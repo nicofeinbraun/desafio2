@@ -30,7 +30,7 @@ function calcularPrecio(precio,comprado){
 }
 
 function restaPrecio(precio,comprado){
-    precioTotal -= comprado * precio;
+    precioTotal -= precio;
 }
 
 function ajusteStock(stock,comprado){
@@ -103,7 +103,7 @@ function borrarProducto(){
     for (i=0 ; i< listaCompra.length ; i++){
         if ( listaCompra[i].nombre == nombre){
             esta = true;
-            restaPrecio(listaCompra[i].precio,listaCompra[i].stock);
+            restaPrecio(listaCompra[i].precio);
             switch(nombre){
                 case listaProductos[0].nombre:
                     listaProductos[0].stock = sumaStock(listaProductos[0].stock,listaCompra[i].stock);
