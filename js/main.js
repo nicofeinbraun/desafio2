@@ -52,6 +52,10 @@ function restaPrecio(indice){
     console.log(listaTotal);
 }
 
+function restaPrecio(precio,comprado){
+    precioTotal -= precio;
+}
+
 function ajusteStock(stock,comprado){
     stock -= comprado;
     return stock;
@@ -190,12 +194,14 @@ function filtrarProductos(){
     articulo = prompt("Como quiere filtrar los articulos:").toLowerCase();
     const resultado = listaProductos.filter((el) => el.nombre.includes(articulo));
     console.log(resultado);
+    menu();
 }
 
 function buscarProductos(){
     articulo = prompt("Que articulo esta buscando:").toLowerCase();
     const resultado = listaProductos.find((el) => el.nombre === articulo);
     console.log(resultado);
+    menu();
 }
 
 
