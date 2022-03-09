@@ -5,10 +5,11 @@
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(3,auto);
+    grid-template-rows: repeat(4,auto);
     grid-template-areas:
     "logo logo logo logo "
-    "vestir vestir vestir vestir"
+    "boton boton boton boton"
+    "vestir vestir vestir carrito"
     "footer footer footer footer";
     @include estilo();
     h2{
@@ -35,18 +36,34 @@
                 }
             }
         }
+    } 
+    .botones{
+        grid-area: boton;
+        .categoria1{
+            border: 2px solid;
+            border-radius: 6px;
+        }
+        .categoria2{
+            border: 2px solid;
+            border-radius: 6px;
+        }
+        .vercarrito{
+            border: 2px solid;
+            border-radius: 6px;
+        }
+        
     }
     .vestir{
         grid-area: vestir;
         background-color: $bgcolor;
-        .hom,.muje{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            align-items: baseline;    
-            justify-content: space-evenly;
-            transition: all 2s ease;
-            .imagen{
+        //.hom,.muje{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: baseline;    
+        justify-content: space-evenly;
+        transition: all 2s ease;
+        .imagen{
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -58,9 +75,12 @@
                     border-radius: 5px;
                     border-color: #d9d9d9;
                 }
-            }
-                
+            }                    
+            //}
         }
+    .carrito{
+        grid-area: carrito;
+        font-size: .7rem;
     }
     .wtt{ 
         position: fixed;

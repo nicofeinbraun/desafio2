@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Descubrí nuestras ofertas en zapatillas e indumentaria para hombre, mujer, niños y más.">
-    <meta name="keywords" content="moda, indumentaria, indumentaria femenina, indumentaria masculina, vestidos, zapatos de mujer,zapatos de hombre, accesorios, jeans, remeras">
     <link rel="shortcut icon" href="./fotos/favicon.jpeg">
     <link rel="stylesheet" href="./css/estilos.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <title>Ropa</title>
+    <title>Document</title>
 </head>
 <body>
+
     <main class="container">
         <div class="ropa">
             <!--Header con nav bar hecha en bootstrap-->
@@ -32,10 +31,10 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Productos
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <!--<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a href="./productos.html#hombre">Hombre</a></li>
                                 <li><a href="./productos.html#mujer">Mujer</a></li> 
-                            </ul>
+                            </ul>-->
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./productos.html#plata">Accesorios</a>
@@ -58,60 +57,16 @@
             
             <!--Icono de whatsapp que se desplaza cuando yo me desplaso por la pagina-->
             <div class="wtt"><a href=""><img src="./fotos/wtts.png" width="50px" alt="whatsapp"></a></div>
+            <div class="botones">
+                <button class="categoria1">Hombre</button>
+                <button class="categoria2">Mujer</button>
+                <button class="vaciar">Vaciar carrito</button>
+            </div>
             
             <!--seccion de articulos-->
-            <section class="vestir">
-                <br>
-                <h2>Ropa Hombre</h2>
-                <br>
-                <section class="hom">
-                    <div>
-                        <img src="./fotos/conjuntodeportivo.jpg" width="200px" alt="Conjunto_Deportivo" class="imagen"><br>
-                        <h3 id="1">Conjunto Deportivo</h3>
-                        <h3 id="precio1">$7199</h3>
-                        <input type="number"name="cantidad" style="width: 4em">
-                        <br>
-                        <button onclick="agregar">Agregar a carrito</button>
-                    </div>
-                    <div>
-                        <img src="./fotos/Saco.jpg" width="200px"alt="Saco" class="imagen"><br>
-                        <h3 id="2">Saco Entallado</h3>
-                        <h3 id="precio2">$6000</h3>
-                        <input type="number"name="cantidad" style="width: 4em">
-                        <br>
-                        <button onclick="agregar">Agregar a carrito</button>
-                    </div>
-                    <div>
-                        <img src="./fotos/Remera.jpg" width="200px" alt="Remera" class="imagen"><br>
-                        <h3 id="3">Remera Lisa</h3>
-                        <h3 id="precio3">$800</h3>
-                        <input type="number"name="cantidad" style="width: 4em">
-                        <br>
-                        <button onclick="agregar">Agregar a carrito</button>
-                    </div>
-                </section>
-                <br>
-                <h2>Ropa Mujer</h2>
-                <br>
-                <section class="muje">
-                    <div>
-                        <img src="./fotos/jean.jpg" width="200px" alt="jean" class="imagen"><br>
-                        <h3 id="5">Jean</h3>
-                        <h3 id="precio5">$2000</h3>
-                        <input type="number"name="cantidad" style="width: 4em">
-                        <br>
-                        <button onclick="agregar">Agregar a carrito</button>
-                    </div>
-                    <div>
-                        <img src="./fotos/remeradeportiva.jpg" width="200px"alt="Remera_deportiva" class="imagen"><br>
-                        <h3 id="6">Remera Deportiva</h3>
-                        <h3 id="precio6">$1050</h3>
-                        <input type="number"name="cantidad" style="width: 4em">
-                        <br>
-                        <button onclick="agregar">Agregar a carrito</button>
-                    </div>
-                </section>
-                <br>
+            <section class="vestir"></section>
+            <section class="carrito">
+                <h3>--------Carrito--------</h3>
             </section>
 
             <!--footer de la pagina con las redes sociales-->
@@ -135,6 +90,7 @@
 
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="./bootstrap/bootstrap.js"></script>
-    <script src="./js/main.js"></script>
+    <script src='JS/main.js'></script>
+    
 </body>
 </html>

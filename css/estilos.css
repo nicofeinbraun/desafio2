@@ -4,9 +4,9 @@
   gap: 1rem;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
-  -ms-grid-rows: (auto)[3];
-      grid-template-rows: repeat(3, auto);
-      grid-template-areas: "logo logo logo logo " "vestir vestir vestir vestir" "footer footer footer footer";
+  -ms-grid-rows: (auto)[4];
+      grid-template-rows: repeat(4, auto);
+      grid-template-areas: "logo logo logo logo " "boton boton boton boton" "vestir vestir vestir carrito" "footer footer footer footer";
   color: black;
   font-size: 1rem;
   text-decoration: none;
@@ -39,15 +39,34 @@
   display: block;
 }
 
-.ropa .vestir {
+.ropa .botones {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   -ms-grid-column-span: 4;
-  grid-area: vestir;
-  background-color: whitesmoke;
+  grid-area: boton;
 }
 
-.ropa .vestir .hom, .ropa .vestir .muje {
+.ropa .botones .categoria1 {
+  border: 2px solid;
+  border-radius: 6px;
+}
+
+.ropa .botones .categoria2 {
+  border: 2px solid;
+  border-radius: 6px;
+}
+
+.ropa .botones .vercarrito {
+  border: 2px solid;
+  border-radius: 6px;
+}
+
+.ropa .vestir {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: vestir;
+  background-color: whitesmoke;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -67,7 +86,7 @@
   transition: all 2s ease;
 }
 
-.ropa .vestir .hom .imagen, .ropa .vestir .muje .imagen {
+.ropa .vestir .imagen {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -79,15 +98,22 @@
       flex-wrap: wrap;
 }
 
-.ropa .vestir .hom .imagen:hover, .ropa .vestir .muje .imagen:hover {
+.ropa .vestir .imagen:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
-.ropa .vestir .hom .imagen img, .ropa .vestir .muje .imagen img {
+.ropa .vestir .imagen img {
   border: 1px solid;
   border-radius: 5px;
   border-color: #d9d9d9;
+}
+
+.ropa .carrito {
+  -ms-grid-row: 3;
+  -ms-grid-column: 4;
+  grid-area: carrito;
+  font-size: .7rem;
 }
 
 .ropa .wtt {
@@ -97,7 +123,7 @@
 }
 
 .ropa .footer {
-  -ms-grid-row: 3;
+  -ms-grid-row: 4;
   -ms-grid-column: 1;
   -ms-grid-column-span: 4;
   grid-area: footer;
