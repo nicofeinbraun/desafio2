@@ -1,6 +1,6 @@
 class Producto{
     constructor(codigoProdu,nombreProdu,precioProdu,stockProdu,categoriaProdu,imgProdu) { 
-        this.codigo = codigoProdu; //Este lo voy a utilizar mas adelante pero ya quiero dejarlo armado
+        this.codigo = codigoProdu;
         this.nombre = nombreProdu;
         this.precio = precioProdu;
         this.stock = stockProdu;
@@ -19,6 +19,8 @@ class Carrito{
         this.nombre = nombreProdu;
         this.precio = precioProdu;  
         this.cantidad = cantidadProdu;
+        this.bor = "bor" + codigoProdu;
+        //this.cat = "cat"+ codigoProdu;
     }
 
 }
@@ -70,7 +72,7 @@ function filtroProductos(categoria){
                             <h3>$ ${producto.precio}</h3>
                             <form class ="formulario2">
                                 <input type="number"name="cantidad" style="width: 4em" min=1 max=${producto.stock} value=0 class ="cantidad1"></input>
-                                <input type="submit" value="Agregar a carrito" class ="btn2"></input>
+                                <input type="submit" value="Agregar a carrito" class ="btn2" ></input>
                             </form>
                             `
     vestir.appendChild(contenedor);
@@ -105,6 +107,9 @@ let formularios = document.getElementsByClassName("formulario");
 let formularios2 = document.getElementsByClassName("formulario2");
 let inputValue = document.getElementsByClassName("btn1");
 let inputValue2 = document.getElementsByClassName("btn2");
+//-----------------------------------------------------------------
+let formulariosX = document.getElementsByClassName("formularioX");
+let borrar = document.getElementsByClassName("btn3");
 
 for (const formulario of formularios) {
     formulario.addEventListener("submit",(e)=>e.preventDefault())    
@@ -113,13 +118,6 @@ for (const formulario of formularios) {
 for (const boton of inputValue) {
     boton.addEventListener("click", validarProducto);        
 }
-/*for (const formulario of formularios2) {
-    //console.log("entro")
-    formulario.addEventListener("submit",(e)=>e.preventDefault())    
-}
-for (const boton of inputValue2) {
-    boton.addEventListener("click", validarProducto);        
-}*/
 
 
 function validarProducto (e){    
@@ -142,19 +140,19 @@ function validarProducto (e){
         }*/
         
         carritos.innerHTML = ' '
-        
-        calcularTotal(cod.precio,cod.cantidad);
-        carritoCompra(listaCompra);
-        localStorage.setItem("Carrito",JSON.stringify(listaCompra))
+        precioTotal += auxiliar.precio;
+        carritoCompra();
+        localStorage.setItem("Carrito",JSON.stringify(listaCompra));
+        localStorage.setItem("Total",precioTotal);
     }
     
 }
 
 
-function calcularTotal(precio,cantidad){
+/*function calcularTotal(precio,cantidad){
     precio = precio*cantidad;
     precioTotal += precio;       
-}
+}*/
 
 function total(){
     if (precioTotal>=100000){
@@ -164,18 +162,19 @@ function total(){
     }
 }
 
-function carritoCompra(listaCompras){
+function carritoCompra(){
+    carritos.innerHTML = ' '    
     precioTotal2 = precioTotal;
     validar = total();
     let contenedorcarrito1 = document.createElement("div");
     let contenedorcarrito2 = document.createElement("div");
     contenedorcarrito1.innerHTML =`<h3>--------Carrito--------</h3>`
-    carritos.appendChild(contenedorcarrito1);
-    for (const producto of listaCompras) {    
+    carritos.appendChild(contenedorcarrito1);    
+    for (const producto of listaCompra) {    
         let contenedorcarrito3 = document.createElement("div");
         contenedorcarrito3.innerHTML = `
-                                <p>${producto.nombre}                  ${producto.cantidad}     $${producto.precio}</p>
-                                `
+                                <p>${producto.nombre}                  ${producto.cantidad}     $${producto.precio} <form class ="formularioX"> <input type="submit" value="X" class ="btn3 btn" id=${producto.bor}></input></form> </p>
+                                `                        
         carritos.appendChild(contenedorcarrito3);   
     }
     if(descuento){
@@ -188,40 +187,45 @@ function carritoCompra(listaCompras){
                                         <p>Total = ${precioTotal2}</p>`
     }  
     carritos.appendChild(contenedorcarrito2);
+    for (const formularioXX of formulariosX) {
+        formularioXX.addEventListener("submit",(e)=>e.preventDefault())    
+    }
+    
+    for (const botonborrar of borrar) {
+        botonborrar.addEventListener("click", borrarItem);           
+    }
+}
+
+
+
+
+function borrarItem(e){
+    localStorage.removeItem("Carrito",JSON.stringify(listaCompra));
+    let id = e.target.id;
+    let cod = listaCompra.find(producto=>producto.bor == id)
+    listaCompra = listaCompra.filter((carritoId) => {
+        return carritoId !==cod;
+    })
+    precioTotal -= cod.precio
+    localStorage.setItem("Carrito",JSON.stringify(listaCompra));
+    localStorage.setItem("Total",precioTotal);
+    carritoCompra();
 }
 
 function vaciarCarrito(){
     carritos.innerHTML = ' '
     listaCompra = [];
     precioTotal = 0;
-    carritoCompra(listaCompra);
+    carritoCompra();
     localStorage.clear();
 }
 
 function loadCarrito(){
     if(localStorage.getItem("Carrito") != null){
-        var carro = JSON.parse(localStorage.getItem("Carrito"))
+        listaCompra = JSON.parse(localStorage.getItem("Carrito"))
+        precioTotal = parseInt(localStorage.getItem("Total"))
     }
-    carritoCompra(carro)
+    carritoCompra()
 }
 
 loadCarrito();
-
-
-/*function restaPrecio(indice){
-    listaTotal.splice(indice,1);
-    console.log(listaTotal);
-}
-
-function restaPrecio(precio){
-    precioTotal -= precio;
-}
-
-function ajusteStock(stock,comprado){
-    stock -= comprado;
-    return stock;
-}
-function sumaStock(stock,comprado){
-    stock += comprado;
-    return stock;
-}*/
