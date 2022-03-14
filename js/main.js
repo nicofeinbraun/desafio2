@@ -20,6 +20,7 @@ class Carrito{
         this.precio = precioProdu;  
         this.cantidad = cantidadProdu;
     }
+
 }
 
 class Totales{
@@ -57,24 +58,28 @@ vaciarCarro.addEventListener('click', function(){vaciarCarrito()});
 
 function filtroProductos(categoria){
     let listaSegunCategoria = listaProductos.filter(x => x.categoria == categoria)
-
     let vestir = document.querySelector('.vestir')
 
     vestir.innerHTML = ' '
 
     for (const producto of listaSegunCategoria) {
         let contenedor = document.createElement("div");
-        
         contenedor.innerHTML = `
-                                <img src=${producto.img} width="200px" alt="Conjunto_Deportivo" class="imagen"/>
-                                <h3>${producto.nombre}</h3>
-                                <h3>$ ${producto.precio}</h3>
-                                <form class = "formulario">
-                                <input type="number"name="cantidad" style="width: 4em" value=0 class ="cantidad1">
-                                <br>
-                                <input type="submit" value="Agregar a carrito" class ="btn" ></input>
-                                </form>`
-        vestir.appendChild(contenedor);
+                            <img src=${producto.img} width="200px" alt="Conjunto_Deportivo" class="imagen"/>
+                            <h3>${producto.nombre}</h3>
+                            <h3>$ ${producto.precio}</h3>
+                            <form class ="formulario2">
+                                <input type="number"name="cantidad" style="width: 4em" min=1 max=${producto.stock} value=0 class ="cantidad1"></input>
+                                <input type="submit" value="Agregar a carrito" class ="btn2"></input>
+                            </form>
+                            `
+    vestir.appendChild(contenedor);
+    }
+    for (const formulario of formularios2) {
+        formulario.addEventListener("submit",(e)=>e.preventDefault())    
+    }
+    for (const boton of inputValue2) {
+        boton.addEventListener("click", validarProducto);        
     }
 }
 
@@ -87,7 +92,7 @@ for (const producto of listaProductos) {
                             <h3>${producto.nombre}</h3>
                             <h3>$ ${producto.precio}</h3>
                             <form class ="formulario">
-                                <input type="number"name="cantidad" style="width: 4em" min=0 max=${producto.stock} value=0 class ="cantidad1"></input>
+                                <input type="number"name="cantidad" style="width: 4em" min=1 max=${producto.stock} value=0 class ="cantidad1"></input>
                                 <input type="submit" value="Agregar a carrito" class ="btn1" id=${producto.codigo}></input>
                             </form>
                             `
@@ -97,7 +102,9 @@ for (const producto of listaProductos) {
 
 
 let formularios = document.getElementsByClassName("formulario");
+let formularios2 = document.getElementsByClassName("formulario2");
 let inputValue = document.getElementsByClassName("btn1");
+let inputValue2 = document.getElementsByClassName("btn2");
 
 for (const formulario of formularios) {
     formulario.addEventListener("submit",(e)=>e.preventDefault())    
@@ -106,21 +113,41 @@ for (const formulario of formularios) {
 for (const boton of inputValue) {
     boton.addEventListener("click", validarProducto);        
 }
+/*for (const formulario of formularios2) {
+    //console.log("entro")
+    formulario.addEventListener("submit",(e)=>e.preventDefault())    
+}
+for (const boton of inputValue2) {
+    boton.addEventListener("click", validarProducto);        
+}*/
+
 
 function validarProducto (e){    
     let id = e.target.id;
     let cod = listaProductos.find(producto=>producto.codigo == id)
     let cantidadPro = e.target.previousSibling.previousSibling.value;
-    cod.manejarcantidad(cantidadPro)
-    if(cod.cantidad>cod.stock){
-        cod.cantidad= cod.stock;
+    if(cantidadPro >0){
+        cod.manejarcantidad(cantidadPro)
+        if(cod.cantidad>cod.stock){
+            cod.cantidad= cod.stock;
+        }
+        let auxiliar = new Carrito(cod.codigo,cod.nombre,(cod.precio*cod.cantidad),cod.cantidad);
+        listaCompra.push(auxiliar);
+        
+        /*for (const producto of listaCompra) {
+            if(producto.codigo == auxiliar.codigo){
+                producto.cantidad = parseInt(auxiliar.cantidad) + parseInt(producto.cantidad);
+                //listaCompra.pop();
+            }
+        }*/
+        
+        carritos.innerHTML = ' '
+        
+        calcularTotal(cod.precio,cod.cantidad);
+        carritoCompra(listaCompra);
+        localStorage.setItem("Carrito",JSON.stringify(listaCompra))
     }
-    let auxiliar = new Carrito(cod.codigo,cod.nombre,(cod.precio*cod.cantidad),cod.cantidad);
-    listaCompra.push(auxiliar);
-    carritos.innerHTML = ' '
     
-    calcularTotal(cod.precio,cod.cantidad);
-    carritoCompra();
 }
 
 
@@ -137,14 +164,14 @@ function total(){
     }
 }
 
-function carritoCompra(){
+function carritoCompra(listaCompras){
     precioTotal2 = precioTotal;
     validar = total();
     let contenedorcarrito1 = document.createElement("div");
     let contenedorcarrito2 = document.createElement("div");
     contenedorcarrito1.innerHTML =`<h3>--------Carrito--------</h3>`
     carritos.appendChild(contenedorcarrito1);
-    for (const producto of listaCompra) {    
+    for (const producto of listaCompras) {    
         let contenedorcarrito3 = document.createElement("div");
         contenedorcarrito3.innerHTML = `
                                 <p>${producto.nombre}                  ${producto.cantidad}     $${producto.precio}</p>
@@ -167,8 +194,18 @@ function vaciarCarrito(){
     carritos.innerHTML = ' '
     listaCompra = [];
     precioTotal = 0;
-    carritoCompra();
+    carritoCompra(listaCompra);
+    localStorage.clear();
 }
+
+function loadCarrito(){
+    if(localStorage.getItem("Carrito") != null){
+        var carro = JSON.parse(localStorage.getItem("Carrito"))
+    }
+    carritoCompra(carro)
+}
+
+loadCarrito();
 
 
 /*function restaPrecio(indice){
