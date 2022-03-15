@@ -20,7 +20,6 @@ class Carrito{
         this.precio = precioProdu;  
         this.cantidad = cantidadProdu;
         this.bor = "bor" + codigoProdu;
-        //this.cat = "cat"+ codigoProdu;
     }
 
 }
@@ -53,10 +52,20 @@ let vaciarCarro = document.querySelector('.vaciar');
 let vestir = document.querySelector('.vestir');
 let carritos = document.querySelector('.carrito');
 
+let formularios = document.getElementsByClassName("formulario");
+let formularios2 = document.getElementsByClassName("formulario2");
+let inputValue = document.getElementsByClassName("btn1");
+let inputValue2 = document.getElementsByClassName("btn2");
+//-----------------------------------------------------------------
+let formulariosX = document.getElementsByClassName("formularioX");
+let borrar = document.getElementsByClassName("btn3");
+
 
 hombre.addEventListener('click', function(){filtroProductos("hombre")});
 mujer.addEventListener('click', function(){filtroProductos("mujer")});
 vaciarCarro.addEventListener('click', function(){vaciarCarrito()});
+
+mostrar(listaProductos);
 
 function filtroProductos(categoria){
     let listaSegunCategoria = listaProductos.filter(x => x.categoria == categoria)
@@ -64,19 +73,7 @@ function filtroProductos(categoria){
 
     vestir.innerHTML = ' '
 
-    for (const producto of listaSegunCategoria) {
-        let contenedor = document.createElement("div");
-        contenedor.innerHTML = `
-                            <img src=${producto.img} width="200px" alt="Conjunto_Deportivo" class="imagen"/>
-                            <h3>${producto.nombre}</h3>
-                            <h3>$ ${producto.precio}</h3>
-                            <form class ="formulario2">
-                                <input type="number"name="cantidad" style="width: 4em" min=1 max=${producto.stock} value=0 class ="cantidad1"></input>
-                                <input type="submit" value="Agregar a carrito" class ="btn2" ></input>
-                            </form>
-                            `
-    vestir.appendChild(contenedor);
-    }
+    mostrar(listaSegunCategoria)
     for (const formulario of formularios2) {
         formulario.addEventListener("submit",(e)=>e.preventDefault())    
     }
@@ -86,37 +83,27 @@ function filtroProductos(categoria){
 }
 
 
-
-for (const producto of listaProductos) {
-    let contenedor = document.createElement("div");
-    contenedor.innerHTML = `
-                            <img src=${producto.img} width="200px" alt="Conjunto_Deportivo" class="imagen"/>
-                            <h3>${producto.nombre}</h3>
-                            <h3>$ ${producto.precio}</h3>
-                            <form class ="formulario">
-                                <input type="number"name="cantidad" style="width: 4em" min=1 max=${producto.stock} value=0 class ="cantidad1"></input>
-                                <input type="submit" value="Agregar a carrito" class ="btn1" id=${producto.codigo}></input>
-                            </form>
-                            `
-    vestir.appendChild(contenedor);
-}
-
-
-
-let formularios = document.getElementsByClassName("formulario");
-let formularios2 = document.getElementsByClassName("formulario2");
-let inputValue = document.getElementsByClassName("btn1");
-let inputValue2 = document.getElementsByClassName("btn2");
-//-----------------------------------------------------------------
-let formulariosX = document.getElementsByClassName("formularioX");
-let borrar = document.getElementsByClassName("btn3");
-
-for (const formulario of formularios) {
-    formulario.addEventListener("submit",(e)=>e.preventDefault())    
-}
-
-for (const boton of inputValue) {
-    boton.addEventListener("click", validarProducto);        
+function mostrar(listaProducto){
+    for (const producto of listaProducto) {
+        let contenedor = document.createElement("div");
+        contenedor.innerHTML = `
+                                <img src=${producto.img} width="200px" alt="Conjunto_Deportivo" class="imagen"/>
+                                <h3>${producto.nombre}</h3>
+                                <h3>$ ${producto.precio}</h3>
+                                <form class ="formulario">
+                                    <input type="number"name="cantidad" style="width: 4em" min=1 max=${producto.stock} value=0 class ="cantidad1"></input>
+                                    <input type="submit" value="Agregar a carrito" class ="btn1" id=${producto.codigo}></input>
+                                </form>
+                                `
+        vestir.appendChild(contenedor);
+    }
+    for (const formulario of formularios) {
+        formulario.addEventListener("submit",(e)=>e.preventDefault())    
+    }
+    
+    for (const boton of inputValue) {
+        boton.addEventListener("click", validarProducto);        
+    }
 }
 
 
@@ -132,13 +119,6 @@ function validarProducto (e){
         let auxiliar = new Carrito(cod.codigo,cod.nombre,(cod.precio*cod.cantidad),cod.cantidad);
         listaCompra.push(auxiliar);
         
-        /*for (const producto of listaCompra) {
-            if(producto.codigo == auxiliar.codigo){
-                producto.cantidad = parseInt(auxiliar.cantidad) + parseInt(producto.cantidad);
-                //listaCompra.pop();
-            }
-        }*/
-        
         carritos.innerHTML = ' '
         precioTotal += auxiliar.precio;
         carritoCompra();
@@ -147,12 +127,6 @@ function validarProducto (e){
     }
     
 }
-
-
-/*function calcularTotal(precio,cantidad){
-    precio = precio*cantidad;
-    precioTotal += precio;       
-}*/
 
 function total(){
     if (precioTotal>=100000){
@@ -163,7 +137,8 @@ function total(){
 }
 
 function carritoCompra(){
-    carritos.innerHTML = ' '    
+    carritos.innerHTML = ' '
+    descuento = false;    
     precioTotal2 = precioTotal;
     validar = total();
     let contenedorcarrito1 = document.createElement("div");
@@ -195,9 +170,6 @@ function carritoCompra(){
         botonborrar.addEventListener("click", borrarItem);           
     }
 }
-
-
-
 
 function borrarItem(e){
     localStorage.removeItem("Carrito",JSON.stringify(listaCompra));
