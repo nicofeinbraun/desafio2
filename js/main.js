@@ -15,6 +15,22 @@ class Producto{
         vaciar ? this.stock += parseInt(cant) : this.stock -= cant
     }
 }
+/*function Producto(codigoProdu,nombreProdu,precioProdu,stockProdu,categoriaProdu,imgProdu){
+    this.codigo = codigoProdu;
+        this.nombre = nombreProdu;
+        this.precio = precioProdu;
+        this.stock = stockProdu;
+        this.categoria = categoriaProdu;
+        this.img = imgProdu;   
+        this.cantidad = 0;
+    this.manejarCantidad = function(comp){
+        this.cantidad=comp;
+    }
+    this.manejarStock = function(cant,vaciar){
+        vaciar ? this.stock += parseInt(cant) : this.stock -= cant
+    }
+}*/
+
 
 class Carrito{
     constructor(codigoProdu,nombreProdu,precioProdu,cantidadProdu){
@@ -37,25 +53,25 @@ let precioTotal = 0;
 let descuento = false;
 let precioTotal2 = 0;
 let vaciar = false;
-
 let listaProductos = [];
 listaCompraDos = [];
 produc();
 recargar = localStorage.getItem("Recargue")
 
-
 function produc(){
-    let producto1 = new Producto(1,"conjunto deportivo",7199,30,"hombre","./fotos/conjuntodeportivo.jpg");
+    /*let producto1 = new Producto(1,"conjunto deportivo",7199,30,"hombre","./fotos/conjuntodeportivo.jpg");
     let producto2 = new Producto(2,"saco",6000,10,"hombre","./fotos/Saco.jpg");
     let producto3 = new Producto(3,"remera hombre",800,100,"hombre","./fotos/Remera.jpg");
     let producto4 = new Producto(4,"jean",2000,26,"hombre","./fotos/jean-hombre.jpg");
     let producto5 = new Producto(5,"remera deportiva mujer",1050,45,"mujer","./fotos/remeradeportiva.jpg");
     let producto6 = new Producto(6,"remera deportiva",1300,45,"hombre","./fotos/remeradeporte.jpg");
     let producto7 = new Producto(7,"jean mujer",1800,20,"mujer","./fotos/jean.jpg");
-    listaProductos = [producto1,producto2,producto3,producto4,producto5,producto6,producto7];
+    listaProductos = [producto1,producto2,producto3,producto4,producto5,producto6,producto7];*/
+    fetch('data.json')
+    .then((resp) => resp.json())
+    .then((data) => data.forEach((producto) => 
+                                            listaProductos.push(new Producto(producto.codigo,producto.nombre,producto.precio,producto.stock,producto.categoria,producto.img,producto.cantidad))))   
 }
-
-//let listaProductos = [producto1,producto2,producto3,producto4,producto5,producto6,producto7];
 let listaCompra = [];
 
 let hombre = document.querySelector('.categoria1');
@@ -72,7 +88,6 @@ let inputValue2 = document.getElementsByClassName("btn2");
 let formulariosX = document.getElementsByClassName("formularioX");
 let borrar = document.getElementsByClassName("btn3");
 
-
 hombre.addEventListener('click', function(){filtroProductos("hombre")});
 mujer.addEventListener('click', function(){filtroProductos("mujer")});
 vaciarCarro.addEventListener('click', function(){vaciarCarrito()});
@@ -84,7 +99,6 @@ function filtroProductos(categoria){
     let vestir = document.querySelector('.vestir')
 
     vestir.innerHTML = ' '
-
     mostrar(listaSegunCategoria)
     for (const formulario of formularios2) {
         formulario.addEventListener("submit",(e)=>e.preventDefault())    
@@ -99,7 +113,9 @@ function mostrar(listaProducto){
     if(recargar){
         listaCompraDos = JSON.parse(localStorage.getItem("Carrito"))
     }
+    console.log(listaProducto)
         for (const producto of listaProducto) {
+            
             let contenedor = document.createElement("div");
             contenedor.innerHTML = `
                                     <img src=${producto.img} width="200px" alt="Conjunto_Deportivo" class="imagen"/>
@@ -171,7 +187,6 @@ function carritoCompra(){
     carritos.innerHTML = ' '
     descuento = false;    
     precioTotal2 = precioTotal;
-    //validar = 
     total();
     let contenedorcarrito1 = document.createElement("div");
     let contenedorcarrito2 = document.createElement("div");

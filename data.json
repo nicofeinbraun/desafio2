@@ -1,0 +1,65 @@
+[
+    {
+        "codigo": 1,
+        "nombre":"conjunto deportivo",
+        "precio": 7199,
+        "stock": 30,
+        "categoria":"hombre",
+        "img":"./fotos/conjuntodeportivo.jpg",
+        "cantidad": 0
+    },
+    {
+        "codigo": 2,
+        "nombre":"saco",
+        "precio": 6000,
+        "stock": 10,
+        "categoria":"hombre",
+        "img":"./fotos/Saco.jpg",
+        "cantidad": 0
+    },
+    {
+        "codigo": 3 ,
+        "nombre":"remera hombre",
+        "precio": 800,
+        "stock": 100,
+        "categoria":"hombre",
+        "img":"./fotos/Remera.jpg",
+        "cantidad": 0
+    },
+    {
+        "codigo": 4 ,
+        "nombre":"jean",
+        "precio": 2000,
+        "stock": 26,
+        "categoria":"hombre",
+        "img":"./fotos/jean-hombre.jpg",
+        "cantidad": 0
+    },
+    {
+        "codigo": 5,
+        "nombre":"remera deportiva mujer",
+        "precio": 1050,
+        "stock": 45,
+        "categoria":"mujer",
+        "img":"./fotos/remeradeportiva.jpg",
+        "cantidad": 0
+    },
+    {
+        "codigo": 6,
+        "nombre":"remera deportiva",
+        "precio": 1300,
+        "stock": 45,
+        "categoria":"hombre",
+        "img":"./fotos/remeradeporte.jpg",
+        "cantidad": 0
+    },
+    {
+        "codigo": 7,
+        "nombre":"jean mujer",
+        "precio": 1800,
+        "stock": 20,
+        "categoria":"mujer",
+        "img":"./fotos/jean.jpg",
+        "cantidad": 0
+    }
+]
