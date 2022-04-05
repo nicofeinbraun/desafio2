@@ -1,0 +1,62 @@
+@import "variables";
+
+.contacto{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: (repeat(4,auto));
+    grid-template-areas:
+    "logo logo  logo logo "
+    "compra compra  mapa mapa"
+    "formulario formulario formulario formulario"
+    "footer footer footer  footer";
+    @include estilo();
+    .logo{
+        grid-area: logo;
+        nav{
+            ul{ 
+                li{
+                    a{
+                        &:hover{
+                            color: #444;
+                            ul{
+                                display:block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .mapa{
+        grid-area: mapa;
+    }
+    .formulario{
+        width: 55%;
+        height: 100%;
+        border: 1px solid black;
+        grid-area: formulario;
+        #comenta{
+           width: 90%;
+           height: 200px;
+           text-transform: none;
+           font-size: 0.75rem;
+        }
+        #mail , #nom , #ape{
+            text-transform:none;
+            font-size: 0.75rem;
+            width: 65%;
+        }
+    }
+    .carrito{
+        grid-area:compra;
+    }
+    .wtt{ 
+        position: fixed;
+            bottom: 20px;
+            right: 20px;
+    }
+    .footer{
+        grid-area: footer;
+    }
+}

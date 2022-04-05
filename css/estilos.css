@@ -166,6 +166,89 @@
   }
 }
 
+.contacto {
+  display: -ms-grid;
+  display: grid;
+  gap: 1rem;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (auto)[4];
+      grid-template-rows: repeat(4, auto);
+      grid-template-areas: "logo logo  logo logo " "compra compra  mapa mapa" "formulario formulario formulario formulario" "footer footer footer  footer";
+  color: black;
+  font-size: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  word-spacing: 8px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.contacto .logo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: logo;
+}
+
+.contacto .logo nav ul li a:hover {
+  color: #444;
+}
+
+.contacto .logo nav ul li a:hover ul {
+  display: block;
+}
+
+.contacto .mapa {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 2;
+  grid-area: mapa;
+}
+
+.contacto .formulario {
+  width: 55%;
+  height: 100%;
+  border: 1px solid black;
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: formulario;
+}
+
+.contacto .formulario #comenta {
+  width: 90%;
+  height: 200px;
+  text-transform: none;
+  font-size: 0.75rem;
+}
+
+.contacto .formulario #mail, .contacto .formulario #nom, .contacto .formulario #ape {
+  text-transform: none;
+  font-size: 0.75rem;
+  width: 65%;
+}
+
+.contacto .carrito {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: compra;
+}
+
+.contacto .wtt {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.contacto .footer {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: footer;
+}
+
 * {
   margin: 0;
   padding: 0;
